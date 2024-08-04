@@ -1,7 +1,7 @@
 import type { QueryResult } from "pg";
 import pg from "pg";
 import type { Uuid } from "~/submodule-common-type-definitions/typeDefinitions";
-import type { Result } from "~/submoudle-common-typescript/utilities/errorHandling";
+import type { Result } from "~/submodule-common-typescript/utilities/errorHandling";
 import {
     errResult,
     okResult,
