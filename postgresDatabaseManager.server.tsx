@@ -1,12 +1,8 @@
 import type { QueryResult } from "pg";
 import pg from "pg";
-import type { Uuid } from "~/submodule-common-type-definitions/typeDefinitions";
-import type { Result } from "~/submodule-common-typescript/utilities/errorHandling";
-import {
-    errResult,
-    okResult,
-} from "~/submodule-common-typescript/utilities/errorHandling";
-import { getErrorFromUnknown } from "~/submodule-common-typescript/utilities/typeValidationUtilities";
+import { Result, errResult, okResult } from "./utilities/errorHandling";
+import { getErrorFromUnknown } from "./utilities/typeValidationUtilities";
+import { Uuid } from "./typeDefinitions";
 const { Pool } = pg;
 
 declare global {
