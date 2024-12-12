@@ -68,7 +68,6 @@ export async function getPostgresDatabaseManager(
             PostgresDatabaseManager
         >();
     }
-
     if (!global._postgresDatabaseManagers.has(id)) {
         if (global._postgresDatabaseCredentialsResolver === undefined) {
             return errResult(Error("edc6b564-0c19-43d6-ad07-74601e74f4c2"));
@@ -92,7 +91,6 @@ export async function getPostgresDatabaseManager(
     }
 
     const postgresDatabaseManager = global._postgresDatabaseManagers.get(id)!;
-
     // TODO: Ensure the connection is valid and alive
 
     return okResult(postgresDatabaseManager);
