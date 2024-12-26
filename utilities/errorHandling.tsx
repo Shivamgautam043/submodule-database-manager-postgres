@@ -1,7 +1,6 @@
-
 export type OkResult<T> = {
     success: true;
-    ok: T;
+    data: T;
 };
 
 export type ErrResult<T> = {
@@ -15,10 +14,10 @@ export function emptyOkResult(): OkResult<void> {
     return okResult<void>(undefined);
 }
 
-export function okResult<T>(ok: T): OkResult<T> {
+export function okResult<T>(data: T): OkResult<T> {
     return {
         success: true,
-        ok: ok,
+        data: data,
     };
 }
 
@@ -34,5 +33,5 @@ export function unwrap<T>(result: Result<T>, debuggingId: string): T {
         throw new Error(`${result.err.message}; ${debuggingId}`);
     }
 
-    return result.ok;
+    return result.data;
 }

@@ -86,7 +86,7 @@ export async function getPostgresDatabaseManager(
 
         // Create a new manager and store it in the global map
         const databaseManager = new PostgresDatabaseManager(
-            credentialsResult.ok
+            credentialsResult.data
         );
         global._postgresDatabaseManagers.set(id, databaseManager);
     }
