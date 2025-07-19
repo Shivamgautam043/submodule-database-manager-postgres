@@ -44,13 +44,13 @@ export class PostgresDatabaseManager {
     }
 
     // Executes a query and returns the result wrapped in a custom Result type
-    async execute<T>(
+    async execute(
         query: string,
         params?: Array<unknown>
-    ): Promise<Result<T>> {
+    ): Promise<Result<QueryResult<unknown>>> {
         try {
             const result = await this.pool.query(query, params); // Execute query with optional parameters
-            return okResult(result.rows as T); // Wrap query result rows in a success response
+            return okResult(result as QueryResult<unknown>); // Wrap query result rows in a success response
         } catch (error) {
             return errResult(error as Error); // Wrap errors in a failure response
         }

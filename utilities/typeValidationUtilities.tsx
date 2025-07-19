@@ -55,6 +55,14 @@ export function getStringFromUnknown(input: unknown): Result<string> {
     return okResult(input);
 }
 
+export function getRequiredEnvironmentVariable(variable: string): string {
+    const value = process.env[variable];
+    if (value == null) {
+        throw new Error(`Required environment variable ${variable} not found!`);
+    }
+    return value;
+}
+
 export function getNonEmptyStringFromUnknown(
     input: unknown
 ): Result<NonEmptyString> {
