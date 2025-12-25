@@ -47,13 +47,3 @@ export function getRequestFormDataAsArray(formData: FormData): Array<[string, st
 
     return body;
 }
-
-export function getRequestFormDataAsDictionary(formData: FormData): Record<string, string> {
-    const body: Record<string, string> = {};
-
-    for (const [k, v] of formData.entries()) {
-        body[k] = v;
-    }
-
-    return body;
-}

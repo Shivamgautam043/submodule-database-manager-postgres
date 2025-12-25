@@ -65,23 +65,6 @@ export function convertArrayToUint8Array(arr: Array<number>): Int8Array {
     return arrInt8;
 }
 
-export function downloadFile(fileName: string, fileContent: Int8Array) {
-    const blob = new Blob([fileContent], { type: "octet/stream" });
-    const fileUrl = window.URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.href = fileUrl;
-    a.download = fileName;
-
-    a.click();
-
-    document.body.removeChild(a);
-
-    window.URL.revokeObjectURL(fileUrl);
-}
-
 export function deterministicShuffle<T>(
     array: Array<T>,
     seed: number

@@ -47,10 +47,10 @@ export class PostgresDatabaseManager {
     async execute(
         query: string,
         params?: Array<unknown>
-    ): Promise<Result<QueryResult<unknown>>> {
+    ): Promise<Result<QueryResult<any>>> {
         try {
             const result = await this.pool.query(query, params); // Execute query with optional parameters
-            return okResult(result as QueryResult<unknown>); // Wrap query result rows in a success response
+            return okResult(result as QueryResult<any>); // Wrap query result rows in a success response
         } catch (error) {
             return errResult(error as Error); // Wrap errors in a failure response
         }
